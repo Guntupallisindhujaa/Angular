@@ -22,7 +22,7 @@ export class Service {
    {
     //console.log("cool")
 
-      return this.http.post<any>("http://34.217.22.73:8000/auth/api/authenticate", user)
+      return this.http.post<any>("http://34.223.91.53:8000/auth/api/authenticate", user)
    // return this.http.post<any>("http://0.0.0.0:8000/auth/api/authenticate", user)
     //return this.http.post<any>("http://auth-lb-pod3-1537775790.ap-southeast-1.elb.amazonaws.com/auth/api/v1/authenticate", user)
     .pipe(map(data =>{
@@ -34,7 +34,7 @@ export class Service {
   }
   pensionerDetails(){
     // console.log(localStorage.getItem("token"));
-    return this.http.get<any>("http://34.217.22.73:6001/pensioner/api/getAllPensioner",{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
+    return this.http.get<any>("http://34.223.91.53:6001/pensioner/api/getAllPensioner",{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
   //  return this.http.get<any>("http://0.0.0.0:6001/pensioner/api/getAllPensioner",{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
    // return this.http.get<any>("htt://lb-pensionerdetail-1472919262.ap-southeast-1.elb.amazonaws.com/pensioner/api/v1/getAllPensioner",{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
       //http://35.165.122.33:8200/pensioner/api/v1/getAllPensioner
@@ -42,7 +42,7 @@ export class Service {
   processPension(pensionInput:ProcessPensionInput){
   //  return this.http.post<any>("http://0.0.0.0:5000/process/api/ProcessPension", pensionInput,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
     
-    return this.http.post<any>("http://34.217.22.73:5000/process/api/ProcessPension", pensionInput,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
+    return this.http.post<any>("http://34.223.91.53:5000/process/api/ProcessPension", pensionInput,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
     //return this.http.post<any>("http://processpension-lb-2027432997.ap-southeast-1.elb.amazonaws.com/process/api/v1/ProcessPension", pensionInput,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
     .pipe(map(data =>{
      localStorage.setItem("pension", data.processPensionStatusCode)
@@ -50,7 +50,7 @@ export class Service {
 
   }
   disbursement(pension:ProcessPensionInput){
-    return this.http.post<any>("http://34.217.22.73:7000/disbursement/api/disbursePension", pension,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
+    return this.http.post<any>("http://34.223.91.53:7000/disbursement/api/disbursePension", pension,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
    //return this.http.post<any>("http://0.0.0.0:7000/disbursement/api/disbursePension", pension,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
  
    //return this.http.post<any>("http://lb-disbursement-728547974.ap-southeast-1.elb.amazonaws.com/disbursement/api/v1/disbursePension", pension,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
@@ -62,7 +62,7 @@ export class Service {
   pensionDetail(pensionerInput:PensionerInput){
   //  return this.http.post<any>("http://0.0.0.0:5000/process/api/PensionDetail", pensionerInput,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
    
-    return this.http.post<any>("http://34.217.22.73:5000/process/api/PensionDetail", pensionerInput,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
+    return this.http.post<any>("http://34.223.91.53:5000/process/api/PensionDetail", pensionerInput,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
    // return this.http.post<any>("http://processpension-lb-2027432997.ap-southeast-1.elb.amazonaws.com/process/api/v1/PensionDetail", pensionerInput,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
   
 
@@ -71,7 +71,7 @@ export class Service {
    // return this.http.get<PensionerDetail>("http://0.0.0.0:6001/pensioner/api/PensionerDetailByAadhaar/"+aadharNumber,
    // {headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
 
-      return this.http.get<PensionerDetail>("http://34.217.22.73:6001/pensioner/api/PensionerDetailByAadhaar/"+aadharNumber,
+      return this.http.get<PensionerDetail>("http://34.223.91.53:6001/pensioner/api/PensionerDetailByAadhaar/"+aadharNumber,
       {headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
     
    // return this.http.get<PensionerDetail>(" http://lb-pensionerdetail-1472919262.ap-southeast-1.elb.amazonaws.com/pensioner/api/v1/PensionerDetailByAadhaar/"+aadharNumber,{headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem("token"))})
